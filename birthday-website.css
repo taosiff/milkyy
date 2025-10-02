@@ -1,0 +1,390 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    background: #000;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section 1: Happy Birthday Fireworks */
+#happy-birthday {
+    background: #111;
+}
+
+#fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.section-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+}
+
+.section-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Section 2: Birthday Cake */
+#birthday-cake {
+    background: #000000ec;
+    overflow: hidden;
+}
+
+.cake-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    overflow: visible;
+}
+
+#cake {
+    position: relative;
+    z-index: 5;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Cake Styles */
+.cake {
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -2.4px;
+    margin-top: -8.33333333px;
+    width: 5px;
+    height: 35px;
+    transform: translateY(0);
+    backface-visibility: hidden;
+    z-index: 10;
+    display: block;
+}
+
+.cake:after,
+.cake:before {
+    background: rgba(255, 0, 0, 0.4);
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2.22222222px;
+}
+
+.cake:after {
+    top: 25%;
+    left: 0;
+}
+
+.cake:before {
+    top: 45%;
+    left: 0;
+}
+
+/* Fire Styles */
+.fuego {
+    border-radius: 100%;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -2.6px;
+    width: 6.66666667px;
+    height: 18px;
+}
+
+.fuego:nth-child(1) {
+    animation: fuego 2s 0s infinite;
+}
+
+.fuego:nth-child(2) {
+    animation: fuego 1.5s 0s infinite;
+}
+
+.fuego:nth-child(3) {
+    animation: fuego 1s 0s infinite;
+}
+
+.fuego:nth-child(4) {
+    animation: fuego 0.5s 0s infinite;
+}
+
+.fuego:nth-child(5) {
+    animation: fuego 0.2s 0s infinite;
+}
+
+/* Fire Animation */
+@keyframes fuego {
+    0%, 100% {
+        background: rgba(254, 248, 97, 0.5);
+        box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        background: rgba(255, 50, 0, 0.1);
+        box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+        transform: translateY(-20px) scale(0);
+    }
+}
+
+@keyframes in {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.text {
+    color: #8b6a60;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+    z-index: 5;
+}
+
+.text h1 {
+    font-size: 1.4em;
+    color: #8b6a60;
+}
+
+.name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #8b6a60;
+}
+
+/* Section 3: Air Message */
+#air-message {
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.air-message-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    object-fit: cover;
+}
+
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex_wrapper {
+    width: 100%;
+    padding-left: calc(20% + 100px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    opacity: 0;
+}
+
+.plane_wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+.sprite_container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.sprite {
+    position: absolute;
+    height: 60px;
+    width: 120px;
+    transform-origin: center bottom;
+}
+
+.rope {
+    margin: 0 -2px 0 -22px;
+    height: 60px;
+    width: 60px;
+    z-index: -1;
+    transform-origin: center left;
+    transition: 0.4s;
+}
+
+.message_ghost,
+.message {
+    height: 30px;
+    line-height: 30px;
+    background-color: white;
+    color: navy;
+    padding: 0px 8px;
+}
+
+.module {
+    position: relative;
+    transition: 0.7s ease-in-out;
+}
+
+.front {
+    display: flex;
+}
+
+.input_wrapper {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.inner_wrapper {
+    width: calc(100% - 20px);
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    padding: 5px 8px;
+    border: 0;
+    font-family: 'Press Start 2P', monospace;
+    background-color: navy;
+    color: white;
+    margin: 8px 0 0 auto;
+    cursor: pointer;
+}
+
+button:hover {
+    color: navy;
+    background-color: white;
+}
+
+textarea {
+    padding: 5px 8px;
+    border: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-family: 'Press Start 2P', monospace;
+    color: navy;
+    resize: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .section-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .wrapper {
+        margin-top: 100px;
+    }
+    
+    .air-message-photo {
+        max-width: 90%;
+        max-height: 60vh;
+    }
+}
+
+@media (max-height: 320px) {
+    .wrapper {
+        margin-top: -40px;
+    }
+}
